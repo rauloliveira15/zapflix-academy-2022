@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col-md-3" scope="col">Título</th>
+      <th class="col-md-3" scope="col">URL</th>
+      <th class="col-md-3" scope="col">Estreia</th>
+      <th class="col-md-3" scope="col">Diretor</th>
+      <th class="col-md-3" scope="col">Gênero</th>
+      <th class="col-md-3" scope="col">Sinopse</th>
+      <th class="col-md-3" scope="col">Ator</th>
+    </tr>
+  </thead>
+  <tbody>
+        <%= render @movie %>
+  </tbody>
+</table>
+
+<div>
+  <%= link_to "Editar", edit_movie_path(@movie) %> |
+  <%= link_to "Voltar", movies_path %>
+
+  <%= button_to "Excluir", @movie, method: :delete %>
+</div>

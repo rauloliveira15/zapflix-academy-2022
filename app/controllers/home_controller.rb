@@ -1,3 +1,6 @@
 class HomeController < ApplicationController
-  def index; end
+  def index
+    @last_movies = Movie.last(4).reverse
+  end
+
 end

@@ -1,0 +1,55 @@
+<%= form_with(model: movie) do |form| %>
+  <% if movie.errors.any? %>
+    <div style="color: red">
+      <h2>Foi encontrado <%=movie.errors.count %> erro:</h2>
+
+      <ul>
+        <% movie.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <form>
+  <div class="form-group">
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title, class: "form-control"%>
+  </div>
+
+    <div class="form-group">
+    <%= form.label :cover_url, style: "display: block" %>
+    <%= form.text_field :cover_url, class: "form-control"%>
+  </div>
+
+    <div class="form-group">
+    <%= form.label :published_at, style: "display: block" %>
+    <%= form.date_field :published_at, class: "form-control" %>
+  </div>
+
+      <div class="form-group">
+    <%= form.label :director_id, style: "display: block" %>
+    <%= form.collection_select :director_id, Director.all, :id, :name, class: "form-control" %>
+  </div>
+
+        <div class="form-group">
+    <%= form.label :movie_genre_id, style: "display: block" %>
+    <%= form.collection_select :movie_genre_id, MovieGenre.all, :id, :name, class: "form-control" %>
+  </div>
+
+    <div class="form-group">
+    <%= form.label :sinopse, style: "display: block" %>
+    <%= form.text_area :sinopse, class: "form-control"%>
+  </div>
+
+        <div class="form-group">
+    <%= form.label :artist_ids, style: "display: block" %>
+    <%= form.collection_check_boxes(:artist_ids, Artist.all, :id, :name) %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+  </form>
+
+<% end %>

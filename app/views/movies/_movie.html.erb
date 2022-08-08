@@ -1,0 +1,32 @@
+<div id="<%= dom_id movie %>">
+<tr>
+  <td><%= truncate(movie.title, length: 35) %></td>
+  <td><%= movie.director.name%></td>
+  <td><%= movie.movie_genre.name %></td>
+  <td><%= formatar_data_estreia(movie.published_at) %></td>
+  <td><%= link_to image_tag("icons/editIcon.png"), edit_movie_path(movie.id) %>
+<a style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#myModal<%= movie.id %>">
+  <%= image_tag("icons/deleteIcon.png" )%>
+  </a>
+  </td>
+</tr>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="myModal<%= movie.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Atenção</h5>
+      </div>
+      <div class="modal-body">
+        <h4> Deseja realmente excluir esse item? </h4>
+        <p> Após a exclusão não será mais possível recuperar os dados! </p>
+      </div>
+      <div class="modal-footer">
+          <%= (button_to "Cancelar", movie, :id => "btn_modal_cancel", :class => "btn btn-secondary") %>
+          <%= (button_to "Excluir", movie_path(movie), method: :delete, :id => "btn_modal_delete", :class => "btn btn-danger") %>
+      </div>
+    </div>
+  </div>
+</div>

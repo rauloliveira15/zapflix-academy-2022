@@ -1,13 +1,17 @@
+
 <div class="card mb-3 col-12 dark-gray-6">
   <div class="row g-0 rounded dark-gray-6">
     <div class="col-md-6 mainCard">
-      <%= image_tag 'main-bg.png' %>
+      <%= image_tag(@last_movies[0].cover_url) %>
     </div>
     <div class="col-md-6">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <h5 class="card-title"><%= truncate(@last_movies[0].title, length: 35 ) %></h5>
+        <p class="card-text"><small class="text-muted">Diretor:</small> <%= @last_movies[0].director.name %></p>
+        <p class="card-text"><small class="text-muted">Estreia:</small> <%= formatar_data_estreia(@last_movies[0].published_at) %></p>
+        <p class="card-text"><small class="text-muted">Gênero:</small> <%= @last_movies[0].movie_genre.name %></p>
+        <p class="card-text"><small class="text-muted">Elenco:</small> <%= set_cast(@last_movies[0].artist_ids) %></p>
+        <p class="card-text"><%= truncate(@last_movies[0].sinopse, length: 100 ) %></p>
       </div>
     </div>
   </div>
@@ -15,31 +19,34 @@
 <div class="row">
   <div class="col-sm-4">
     <div class="card dark-gray-6">
-      <%= image_tag 'cover1.png', class: 'card-img-top' %>
+      <%= image_tag(@last_movies[1].cover_url, class: 'card-img-top img-card') %>
       <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias porro amet consectetur reprehenderit possimus unde nemo quasi nisi, doloremque id nostrum enim atque, debitis quaerat itaque non quibusdam perferendis dolor.
-        </p>
+      <h5 class="card-title"><%= truncate(@last_movies[1].title, length: 35 ) %></h5>
+      <p class="card-text"><small class="text-muted">Diretor:</small> <%= @last_movies[1].director.name %></p>
+      <p class="card-text"><small class="text-muted">Estreia:</small> <%= formatar_data_estreia(@last_movies[1].published_at) %></p>
+      <p class="card-text"><%= truncate(@last_movies[1].sinopse, length: 100 ) %></p>
+      </div>
+    </div>
+  </div>
+<div class="col-sm-4">
+    <div class="card dark-gray-6">
+      <%= image_tag(@last_movies[2].cover_url, class: 'card-img-top img-card') %>
+      <div class="card-body">
+      <h5 class="card-title"><%= truncate(@last_movies[2].title, length: 35 ) %></h5>
+      <p class="card-text"><small class="text-muted">Diretor:</small> <%= @last_movies[2].director.name %></p>
+      <p class="card-text"><small class="text-muted">Estreia:</small> <%= formatar_data_estreia(@last_movies[2].published_at) %></p>
+      <p class="card-text"><%= truncate(@last_movies[2].sinopse, length: 100 ) %></p>
       </div>
     </div>
   </div>
   <div class="col-sm-4">
     <div class="card dark-gray-6">
-      <%= image_tag 'cover2.png', class: 'card-img-top' %>
+      <%= image_tag(@last_movies[3].cover_url, class: 'card-img-top img-card') %>
       <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias porro amet consectetur reprehenderit possimus unde nemo quasi nisi, doloremque id nostrum enim atque, debitis quaerat itaque non quibusdam perferendis dolor.
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="col-sm-4">
-    <div class="card dark-gray-6">
-      <%= image_tag 'cover3.png', class: 'card-img-top' %>
-      <div class="card-body">
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias porro amet consectetur reprehenderit possimus unde nemo quasi nisi, doloremque id nostrum enim atque, debitis quaerat itaque non quibusdam perferendis dolor.
-        </p>
+      <h5 class="card-title"><%= truncate(@last_movies[3].title, length: 35 ) %></h5>
+      <p class="card-text"><small class="text-muted">Diretor:</small> <%= @last_movies[3].director.name %></p>
+      <p class="card-text"><small class="text-muted">Estreia:</small> <%= formatar_data_estreia(@last_movies[3].published_at) %></p>
+      <p class="card-text"><%= truncate(@last_movies[3].sinopse, length: 100 ) %></p>
       </div>
     </div>
   </div>

@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col-md-3" scope="col">Nome</th>
+      <th class="col-md-3" scope="col">Criado em</th>
+      <th class="col-md-3" scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @artist %>
+  </tbody>
+</table>
+
+
+
+<div>
+  <%= link_to "Editar", edit_artist_path(@artist) %> |
+  <%= link_to "Voltar", artists_path %>
+
+  <%= button_to "Excluir", @artist, method: :delete %>
+</div>

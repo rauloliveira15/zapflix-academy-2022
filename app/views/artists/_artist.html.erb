@@ -1,0 +1,32 @@
+<div id="<%= dom_id artist %>">
+<tr>
+  <td><%= artist.name %></td>
+  <td><%= formatar_data(artist.created_at) %></td>
+  <td><%= link_to image_tag("icons/editIcon.png"), edit_artist_path(artist.id) %>
+  <a style="cursor: pointer" data-bs-toggle="modal" data-bs-target="#myModal<%= artist.id %>">
+  <%= image_tag("icons/deleteIcon.png" )%>
+  </a>
+  </td>
+</tr>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="myModal<%= artist.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Atenção</h5>
+      </div>
+      <div class="modal-body">
+        <h4> Deseja realmente excluir esse item? </h4>
+        <p> Após a exclusão não será mais possível recuperar os dados! </p>
+      </div>
+      <div class="modal-footer">
+          <%= (button_to "Cancelar", artist, :id => "btn_modal_cancel", :class => "btn btn-secondary") %>
+          <%= (button_to "Excluir", artist_path(artist), method: :delete, :id => "btn_modal_delete", :class => "btn btn-danger") %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
